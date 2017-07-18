@@ -10,12 +10,12 @@ int main(int argc, char *argv[])
     do
     {
         cout<<"Input stroke:"<<endl;
-        int lh,lw,h,w;
-        cin>>lh>>lw>>h>>w;
+        int lw,lh,w,h;
+        cin>>lw>>lh>>w>>h;
         cout<<"\n";
         if(lh!=10)
         {
-            if(board.play(lh,lw,h,w))
+            if(board.play(lw,lh,w,h))
                 {
                     cout<<"Stroke complete!"<<endl;
                 }

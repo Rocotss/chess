@@ -1,16 +1,16 @@
 #include <math.h>
 #include "king.h"
 
-bool King::stroke(Step step, Figure* board[height][width])
+bool King::stroke(Step step, Figure* board[width][height])
 {
     bool ans=false;
 
-    if(abs(step.h-step.last_h)<2 && abs(step.w-step.last_w)<2 &&
-            ((board[step.h][step.w]==nullptr) ||
-            (board[step.last_h][step.last_w]->side!=board[step.h][step.w]->side)))
+    if(abs(step.w-step.last_w)<2 && abs(step.h-step.last_h)<2 &&
+            ((board[step.w][step.h]==nullptr) ||
+            (board[step.last_w][step.last_h]->side!=board[step.w][step.h]->side)))
     {
-        board[step.h][step.w]=board[step.last_h][step.last_w];
-        board[step.last_h][step.last_w]=nullptr;
+        board[step.w][step.h]=board[step.last_w][step.last_h];
+        board[step.last_w][step.last_h]=nullptr;
         ans=true;
     }
 

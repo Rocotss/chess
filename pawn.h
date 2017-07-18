@@ -7,7 +7,7 @@
 class Pawn:public Figure
 {
 public:
-    bool stroke(Step step, Figure* board[height][width]);
+    bool stroke(Step step, Figure* board[width][height]);
 };
 
 #endif // PAWN_H

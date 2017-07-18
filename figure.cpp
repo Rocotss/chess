@@ -1,27 +1,26 @@
 #include "figure.h"
 
-
-bool Figure::stroke(Step step, Figure* board[height][width])
+bool Figure::stroke(Step step, Figure* board[width][height])
 {
     bool ans=false;
 
-    board[step.h][step.w]=board[step.last_h][step.last_w];
-    board[step.last_h][step.last_w]=nullptr;
+    board[step.w][step.h]=board[step.last_w][step.last_h];
+    board[step.last_w][step.last_h]=nullptr;
     return ans;
 }
 
 
-bool Figure::stroke_h_w(Step step, Figure* board[height][width])
+bool Figure::stroke_h_w(Step step, Figure* board[width][height])
 {
 	bool ans=false;
 
-	if(step.w==step.last_w) //проверка хода по вертикали
+    if(step.h==step.last_h) //проверка хода по горизонтали
 	{
-		if(step.h>step.last_h) // вверх
+        if(step.w>step.last_w) // право
 		{
-			for(int i=step.last_h+1; i<step.h; i++)
+            for(int i=step.last_w+1; i<step.w; i++)
 			{
-				if(board[i][step.w]==nullptr)
+                if(board[i][step.h]==nullptr)
 				{
 					ans=true;
 				}
@@ -32,11 +31,11 @@ bool Figure::stroke_h_w(Step step, Figure* board[height][width])
 				}
 			}
 		}
-		else //вниз
+        else //лево
 		{
-			for(int i=step.last_h-1; i>step.h; i--)
+            for(int i=step.last_w-1; i>step.w; i--)
 			{
-				if(board[i][step.w]==nullptr)
+                if(board[i][step.h]==nullptr)
 				{
 					ans=true;
 				}
@@ -49,13 +48,13 @@ bool Figure::stroke_h_w(Step step, Figure* board[height][width])
 		}
 	}
 
-	if(step.h==step.last_h) // проверка по горизонтали
+    if(step.w==step.last_w) // проверка хода по вертикали
 	{
-		if(step.w>step.last_w) //вправо
+        if(step.h>step.last_h) //вверх
 		{
-			for(int j=step.last_w+1; j<step.w; j++)
+            for(int j=step.last_h+1; j<step.h; j++)
 			{
-				if(board[step.h][j]==nullptr)
+                if(board[step.w][j]==nullptr)
 				{
 					ans=true;
 				}
@@ -66,11 +65,11 @@ bool Figure::stroke_h_w(Step step, Figure* board[height][width])
 				}
 			}
 		}
-		else //влево
+        else //вниз
 		{
 			for(int j=step.last_w-1; j>step.w; j--)
 			{
-				if(board[step.h][j]==nullptr)
+                if(board[step.w][j]==nullptr)
 				{
 					ans=true;
 				}
@@ -86,7 +85,7 @@ bool Figure::stroke_h_w(Step step, Figure* board[height][width])
 	return ans;
 }
 
-bool Figure::stroke_diag(Step step, Figure* board[height][width])
+bool Figure::stroke_diag(Step step, Figure* board[width][height])
 {
 	bool ans=false;
 

@@ -7,7 +7,7 @@
 class Horse:public Figure
 {
 public:
-    bool stroke(Step step, Figure* board[height][width]);
+    bool stroke(Step step, Figure* board[width][height]);
 };
 
 #endif // HORSE_H

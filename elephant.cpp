@@ -1,21 +1,21 @@
 #include <math.h>
 #include "elephant.h"
 
-bool Elephant::stroke(Step step, Figure* board[height][width])
+bool Elephant::stroke(Step step, Figure* board[width][height])
 {
     bool ans=false;
 
-     if(abs(step.h-step.last_h)==abs(step.w-step.last_w) &&
-             ((board[step.h][step.w]==nullptr) ||
-             (board[step.last_h][step.last_w]->side!=board[step.h][step.w]->side)))
+     if(abs(step.w-step.last_w)==abs(step.h-step.last_h) &&
+             ((board[step.w][step.h]==nullptr) ||
+             (board[step.last_w][step.last_h]->side!=board[step.w][step.h]->side)))
      {
     	 ans = Figure::stroke_diag(step, board);
      }
 
      if(ans)
      {
-         board[step.h][step.w]=board[step.last_h][step.last_w];
-         board[step.last_h][step.last_w]=0;
+         board[step.w][step.h]=board[step.last_w][step.last_h];
+         board[step.last_w][step.last_h]=0;
      }
 
     return ans;

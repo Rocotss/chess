@@ -15,37 +15,37 @@ Board::Board()
 {
     int side=white;
 
-    for(int i=0; i<height; i++)
+    for(int j=0; j<height; j++)
     {
-        if(i==height-2)
+        if(j==height-2)
         {
             side=black;
         }
 
-        if(i==0 || i==height-1)
+        if(j==0 || j==width-1)
         {
-            board_p[i][0]=new Rook;
-            board_p[i][0]->side=side;
-            board_p[i][width-1]=new Rook;
-            board_p[i][width-1]->side=side;
-            board_p[i][1]=new Horse;
-            board_p[i][1]->side=side;
-            board_p[i][width-2]=new Horse;
-            board_p[i][width-2]->side=side;
-            board_p[i][2]=new Elephant;
-            board_p[i][2]->side=side;
-            board_p[i][width-3]=new Elephant;
-            board_p[i][width-3]->side=side;
-            board_p[i][3]=new Queen;
-            board_p[i][3]->side=side;
-            board_p[i][4]=new King;
-            board_p[i][4]->side=side;
+            board_p[0][j]=new Rook;
+            board_p[0][j]->side=side;
+            board_p[width-1][j]=new Rook;
+            board_p[width-1][j]->side=side;
+            board_p[1][j]=new Horse;
+            board_p[1][j]->side=side;
+            board_p[width-2][j]=new Horse;
+            board_p[width-2][j]->side=side;
+            board_p[2][j]=new Elephant;
+            board_p[2][j]->side=side;
+            board_p[width-3][j]=new Elephant;
+            board_p[width-3][j]->side=side;
+            board_p[3][j]=new Queen;
+            board_p[3][j]->side=side;
+            board_p[4][j]=new King;
+            board_p[4][j]->side=side;
         }
         else
         {
-            for(int j=0; j<width; j++)
+            for(int i=0; i<width; i++)
             {
-                if(i==1 || i==height-2)
+                if(j==1 || j==height-2)
                 {
                     board_p[i][j]=new Pawn;
                     board_p[i][j]->side=side;
@@ -59,14 +59,14 @@ Board::Board()
     }
 }
 
-bool Board::play(int last_h, int last_w, int h, int w)
+bool Board::play(int last_w, int last_h, int w, int h)
 {
     bool ans=false;
 
-    Step step={last_h,last_w,h,w};
-    if(board_p[h][w]!=nullptr)
+    Step step={last_w,last_h,w,h};
+    if(board_p[w][h]!=nullptr)
     {
-        ans=board_p[step.last_h][step.last_w]->stroke(step,board_p);
+        ans=board_p[step.last_w][step.last_h]->stroke(step,board_p);
     }
 
     return ans;

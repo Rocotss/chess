@@ -7,14 +7,14 @@
 class Board
 {
 private:
-    Figure* board_p[height][width];
+    Figure* board_p[width][height];
 
     enum{pawn=1, elephant, horse, rook, queen, king};
 
 public:
     Board();
 
-    bool play(int last_h, int last_w, int h, int w);
+    bool play(int last_w, int last_h, int w, int h);
 };
 
 #endif // BOARD_H

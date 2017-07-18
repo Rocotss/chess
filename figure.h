@@ -9,11 +9,11 @@ public:
 
 	int side;
 
-    virtual bool stroke(Step step, Figure* board[height][width]);
+    virtual bool stroke(Step step, Figure* board[width][height]);
 
-    bool stroke_h_w(Step step, Figure* board[height][width]);
+    bool stroke_h_w(Step step, Figure* board[width][height]);
 
-    bool stroke_diag(Step step, Figure* board[height][width]);
+    bool stroke_diag(Step step, Figure* board[width][height]);
 };
 
 #endif // FIGURE_H
