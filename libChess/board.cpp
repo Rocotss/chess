@@ -64,8 +64,9 @@ bool Board::play(int last_w, int last_h, int w, int h)
     bool ans=false;
 
     Step step={last_w,last_h,w,h};
-    if(board_p[w][h]!=nullptr)
+    if(board_p[last_w][last_h]!=nullptr && (board_p[w][h]==nullptr || board_p[last_w][last_h]->side!=board_p[w][h]->side))
     {
+        cout<<board_p[last_w][last_h]<<endl;
         ans=board_p[step.last_w][step.last_h]->stroke(step,board_p);
     }
 

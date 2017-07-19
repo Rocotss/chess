@@ -22,10 +22,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += libchess.cpp
+SOURCES += \
+      board.cpp \
+      figure.cpp \
+      pawn.cpp \
+      rook.cpp \
+      horse.cpp \
+      elephant.cpp \
+      queen.cpp \
+      king.cpp \
+    play.cpp
 
-HEADERS += libchess.h\
-        libchess_global.h
+
+HEADERS +=\
+        libchess_global.h \
+        board.h \
+        elephant.h \
+        figure.h \
+        horse.h \
+        king.h \
+        pawn.h \
+        queen.h \
+        rook.h \
+        step.h \
+    play.h
 
 unix {
     target.path = /usr/lib
