@@ -1,0 +1,12 @@
+#ifndef LIBCHESS_GLOBAL_H
+#define LIBCHESS_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(LIBCHESS_LIBRARY)
+#  define LIBCHESSSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define LIBCHESSSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // LIBCHESS_GLOBAL_H
