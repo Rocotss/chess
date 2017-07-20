@@ -15,7 +15,7 @@ bool Elephant::stroke(Step step, Figure* board[width][height])
      if(ans)
      {
          board[step.w][step.h]=board[step.last_w][step.last_h];
-         board[step.last_w][step.last_h]=0;
+         board[step.last_w][step.last_h]=nullptr;
      }
 
     return ans;

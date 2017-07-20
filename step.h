@@ -1,8 +1,8 @@
 #ifndef STEP_H
 #define STEP_H
 
-const int width (8);
-const int height (8);
+const int width (8); // переместить в board
+const int height (8); // переместить в board
 
 enum{white,black};
 

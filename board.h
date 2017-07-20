@@ -9,10 +9,10 @@ class Board
 private:
     Figure* board_p[width][height];
 
-    enum{pawn=1, elephant, horse, rook, queen, king};
-
 public:
     Board();
+
+    ~Board();
 
     bool play(int last_w, int last_h, int w, int h);
 };
