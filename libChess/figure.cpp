@@ -1,15 +1,5 @@
 #include "figure.h"
 
-bool Figure::stroke(Step step, Figure* board[width][height])
-{
-    bool ans=false;
-
-    board[step.w][step.h]=board[step.last_w][step.last_h];
-    board[step.last_w][step.last_h]=nullptr;
-    return ans;
-}
-
-
 bool Figure::stroke_h_w(Step step, Figure* board[width][height])
 {
 	bool ans=false;

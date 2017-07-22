@@ -9,7 +9,7 @@ public:
 
 	int side;
 
-    virtual bool stroke(Step step, Figure* board[width][height]);
+    virtual bool stroke(Step step, Figure* board[width][height])=0;
 
     bool stroke_h_w(Step step, Figure* board[width][height]);
 

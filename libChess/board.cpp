@@ -59,6 +59,17 @@ Board::Board()
     }
 }
 
+Board::~Board()
+{
+   for(int i=0;i<width;i++)
+   {
+       for(int j=0;j<height;j++)
+       {
+            delete board_p[i][j];
+       }
+   }
+}
+
 bool Board::play(int last_w, int last_h, int w, int h)
 {
     bool ans=false;
@@ -70,5 +81,27 @@ bool Board::play(int last_w, int last_h, int w, int h)
         ans=board_p[step.last_w][step.last_h]->stroke(step,board_p);
     }
 
+/*    char str;
+    for(int i=0;i<width;i++)
+    {
+        for(int j=0;j<height;j++)
+        {
+            switch(board_p[i][j])
+            {
+                case :
+                {
+                    str='p';
+                }
+
+                default:
+                {
+                    str='-';
+                }
+            }
+            cout<<str<<" ";
+        }
+        cout<<"\n";
+    }
+*/
     return ans;
 }
