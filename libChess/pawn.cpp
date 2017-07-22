@@ -16,10 +16,9 @@ bool Pawn::stroke(Step step, Figure* board[width][height])
     }
 
     //обычный ход
-    if(step.h==step.last_h &&
-            ((step.last_w==step.w-1 && board[step.last_w][step.last_h]->side==white) ||
-            (step.last_w==step.w+1 && board[step.last_w][step.last_h]->side==black)) &&
-            board[step.w][step.h]==nullptr)
+    if(step.w==step.last_w &&
+            ((step.last_h==step.h-1 && board[step.last_w][step.last_h]->side==white) ||
+            (step.last_h==step.h+1 && board[step.last_w][step.last_h]->side==black)))
     {
         board[step.w][step.h]=board[step.last_w][step.last_h];
         board[step.last_w][step.last_h]=nullptr;

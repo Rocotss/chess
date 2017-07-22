@@ -4,22 +4,11 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    board.cpp \
-    figure.cpp \
-    pawn.cpp \
-    rook.cpp \
-    horse.cpp \
-    elephant.cpp \
-    queen.cpp \
-    king.cpp
 
 HEADERS += \
-    board.h \
-    figure.h \
-    pawn.h \
-    rook.h \
-    horse.h \
-    elephant.h \
-    queen.h \
-    king.h \
-    step.h
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/build-libChess-Desktop_Qt_5_9_0_MinGW_32bit-Release/release/ -llibChess
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/build-libChess-Desktop_Qt_5_9_0_MinGW_32bit-Debug/debug/ -llibChess
+
+INCLUDEPATH += $$PWD/libChess
+DEPENDPATH += $$PWD/libChess

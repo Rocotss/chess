@@ -1,31 +1,30 @@
 #include <iostream>
-#include "board.h"
+#include "play.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    Board board;
-    int lh=0;
+    int id=1;
+    int lw,lh,w,h;
     do
     {
         cout<<"Input stroke:"<<endl;
-        int lw,lh,w,h;
         cin>>lw>>lh>>w>>h;
         cout<<"\n";
-        if(lh!=10)
+        if(lw!=10)
         {
-            if(board.play(lw,lh,w,h))
-                {
-                    cout<<"Stroke complete!"<<endl;
-                }
-                else
-                {
-                    cout<<"Stroke valid!"<<"\n"<<endl;
-                }
+            if(play(id,lw,lh,w,h))
+            {
+                cout<<"Stroke complete!"<<endl;
+            }
+            else
+            {
+                cout<<"Stroke valid!"<<"\n"<<endl;
+            }
         }
     }
-    while(lh!=10);
+    while(lw!=10);
     cout << "Game over!" << endl;
     return 0;
 }
