@@ -77,30 +77,9 @@ bool Board::play(int last_w, int last_h, int w, int h)
     Step step={last_w,last_h,w,h};
     if(board_p[last_w][last_h]!=nullptr && (board_p[w][h]==nullptr || board_p[last_w][last_h]->side!=board_p[w][h]->side))
     {
+        cout<<board_p[last_w][last_h]<<endl;
         ans=board_p[step.last_w][step.last_h]->stroke(step,board_p);
     }
 
-/*    char str;
-    for(int i=0;i<width;i++)
-    {
-        for(int j=0;j<height;j++)
-        {
-            switch(board_p[i][j])
-            {
-                case :
-                {
-                    str='p';
-                }
-
-                default:
-                {
-                    str='-';
-                }
-            }
-            cout<<str<<" ";
-        }
-        cout<<"\n";
-    }
-*/
     return ans;
 }
